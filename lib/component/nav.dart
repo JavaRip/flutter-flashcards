@@ -13,7 +13,7 @@ class Nav extends StatelessWidget {
         Spacer(),
         ElevatedButton(
           onPressed: () {
-            print('hello from create cards');
+            Navigator.of(context).pushNamed('/create');
           },
           child: const Text('Create Cards'),
         ),
