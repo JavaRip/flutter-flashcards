@@ -18,8 +18,6 @@ class CreatePage extends StatelessWidget {
 }
 
 class _CreatePageBody extends StatelessWidget {
-  // CreatePage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -50,9 +48,17 @@ class _CreatePageBody extends StatelessWidget {
         ElevatedButton(
           onPressed: () {
             Provider.of<CreateFlashcardProvider>(context, listen: false)
-                .saveCard(context);
+                .saveCard();
           },
           child: const Text('Create Card'),
+        ),
+        const Spacer(),
+        ElevatedButton(
+          onPressed: () {
+            Provider.of<CreateFlashcardProvider>(context, listen: false)
+                .saveDeck();
+          },
+          child: const Text('Save Deck'),
         ),
       ],
     );

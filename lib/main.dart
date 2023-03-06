@@ -1,6 +1,7 @@
 import 'package:flashcards/pages/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flashcards/pages/create/create.dart';
+import 'package:flashcards/pages/review/review.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => const Homepage(),
           '/create': (context) => const CreatePage(),
+          '/review': (context) => const ReviewPage(),
         });
   }
 }

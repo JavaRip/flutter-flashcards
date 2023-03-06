@@ -20,7 +20,7 @@ class Nav extends StatelessWidget {
         Spacer(),
         ElevatedButton(
           onPressed: () {
-            print('hello from review cards');
+            Navigator.of(context).pushNamed('/review');
           },
           child: const Text('Review Cards'),
         ),
