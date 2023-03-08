@@ -1,21 +1,13 @@
-import "package:flutter/foundation.dart";
-import "package:flutter/src/widgets/framework.dart";
-
-class Card {
-  String front;
-  String back;
-
-  Card(this.front, this.back);
-}
+import 'package:flutter/foundation.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import '../../data/data.dart';
 
 class CreateFlashcardProvider extends ChangeNotifier {
   String _frontText = '';
   String _backText = '';
-  final List<Card> _cards = [];
 
   String get frontText => _frontText;
   String get backText => _backText;
-  List<Card> get cards => _cards;
 
   void setFrontText(String value) {
     _frontText = value;
@@ -28,11 +20,6 @@ class CreateFlashcardProvider extends ChangeNotifier {
   }
 
   void saveCard() {
-    _cards.add(Card(frontText, backText));
     notifyListeners();
-  }
-
-  void saveDeck() {
-    print('saving decks to databse');
   }
 }

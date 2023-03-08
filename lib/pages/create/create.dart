@@ -53,13 +53,6 @@ class _CreatePageBody extends StatelessWidget {
           child: const Text('Create Card'),
         ),
         const Spacer(),
-        ElevatedButton(
-          onPressed: () {
-            Provider.of<CreateFlashcardProvider>(context, listen: false)
-                .saveDeck();
-          },
-          child: const Text('Save Deck'),
-        ),
       ],
     );
   }
