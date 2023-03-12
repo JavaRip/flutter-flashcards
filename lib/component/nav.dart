@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter/material.dart';
-
 class Nav extends StatelessWidget {
   const Nav({super.key});
 
@@ -10,21 +8,21 @@ class Nav extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Spacer(),
+        const Spacer(),
         ElevatedButton(
           onPressed: () {
             Navigator.of(context).pushNamed('/create');
           },
           child: const Text('Create Cards'),
         ),
-        Spacer(),
+        const Spacer(),
         ElevatedButton(
           onPressed: () {
             Navigator.of(context).pushNamed('/review');
           },
           child: const Text('Review Cards'),
         ),
-        Spacer(),
+        const Spacer(),
       ],
     );
   }
