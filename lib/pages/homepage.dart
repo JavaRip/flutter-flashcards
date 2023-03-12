@@ -45,8 +45,12 @@ class _CreatePageBody extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return Container(
             height: 50,
-            color: Colors.amber,
-            child: const Center(child: Text('wooow')),
+            color: Colors.blue,
+            padding: const EdgeInsets.all(16.0),
+            child: Center(
+              child: Text(Provider.of<HomepageProvider>(context, listen: false)
+                  .deckTitlesString[index]),
+            ),
           );
         },
       ),
