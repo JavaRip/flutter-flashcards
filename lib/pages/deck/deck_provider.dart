@@ -13,14 +13,12 @@ class DeckProvider extends ChangeNotifier {
   }
 
   Future<int> saveDeck() async {
-    notifyListeners();
-    // First, create a LocalDb object
     LocalDb localDb = LocalDb();
-
-    // Then, create a DeckDao object with the LocalDb object as an argument
     DeckDao deckDao = DeckDao(localDb);
 
-    // Call the addDeck function on the DeckDao object with a name parameter
-    return await deckDao.addDeck("MyNewDeck");
+    var deckId = await deckDao.addDeck(_deckName);
+
+    notifyListeners();
+    return deckId;
   }
 }

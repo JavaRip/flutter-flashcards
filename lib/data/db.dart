@@ -48,6 +48,8 @@ LazyDatabase _openConnection() {
     // for your app.
     final dbFolder = await getApplicationDocumentsDirectory();
     final file = File(p.join(dbFolder.path, 'db.sqlite'));
+    print('================================');
+    print(file);
     return NativeDatabase.createInBackground(file);
   });
 }

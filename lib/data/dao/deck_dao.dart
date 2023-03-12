@@ -12,8 +12,8 @@ class DeckDao extends DatabaseAccessor<LocalDb> with _$DeckDaoMixin {
   // of this object.
   DeckDao(LocalDb db) : super(db);
 
-  Future<List<DeckData>> getAllCards() => select(deck).get();
-  Stream<List<DeckData>> watchAllCards() => select(deck).watch();
+  Future<List<DeckData>> getAllDecks() => select(deck).get();
+  Stream<List<DeckData>> watchAllDecks() => select(deck).watch();
 
   Future<int> addDeck(String name) {
     return into(deck).insert(DeckCompanion.insert(name: name));

@@ -1,11 +1,18 @@
 import 'package:flutter/foundation.dart';
 
-class CreateFlashcardProvider extends ChangeNotifier {
-  List<String> _deckTitles = [];
+import '../data/dao/deck_dao.dart';
+import '../data/db.dart';
 
-  List<String> get deckTitles => _deckTitles;
+class HomepageProvider extends ChangeNotifier {
+  List<DeckData> _deckTitles = [];
 
-  void setDeckTitles(String value) {
-    print('retrieve deck titles from db');
+  List<DeckData> get deckTitles => _deckTitles;
+
+  Future<void> setDeckTitles() async {
+    LocalDb localDb = LocalDb();
+    DeckDao deckDao = DeckDao(localDb);
+
+    _deckTitles = await deckDao.getAllDecks();
+    notifyListeners();
   }
 }
