@@ -4,15 +4,23 @@ import '../data/dao/deck_dao.dart';
 import '../data/db.dart';
 
 class HomepageProvider extends ChangeNotifier {
-  List<DeckData> _deckTitles = [];
+  List<DeckData> _deckTitlesData = [];
+  List<String> _deckTitlesString = [];
 
-  List<DeckData> get deckTitles => _deckTitles;
+  List<DeckData> get deckTitlesData => _deckTitlesData;
+  List<String> get deckTitlesString => _deckTitlesString;
 
-  Future<void> setDeckTitles() async {
+  Future<List<String>> setDeckTitles() async {
     LocalDb localDb = LocalDb();
     DeckDao deckDao = DeckDao(localDb);
 
-    _deckTitles = await deckDao.getAllDecks();
+    _deckTitlesData = await deckDao.getAllDecks();
+    _deckTitlesString =
+        _deckTitlesData.map((deckData) => deckData.name).toList();
+
+    print('--------------------------------');
+    print(deckTitlesString);
     notifyListeners();
+    return _deckTitlesString;
   }
 }
