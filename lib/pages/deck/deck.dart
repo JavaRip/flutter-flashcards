@@ -38,7 +38,7 @@ class _CreatePageBody extends StatelessWidget {
           onPressed: () async {
             await Provider.of<DeckProvider>(context, listen: false).saveDeck();
           },
-          child: const Text('Create Card'),
+          child: const Text('Create Deck'),
         ),
         const Spacer(),
       ],

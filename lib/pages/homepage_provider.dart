@@ -18,8 +18,6 @@ class HomepageProvider extends ChangeNotifier {
     _deckTitlesString =
         _deckTitlesData.map((deckData) => deckData.name).toList();
 
-    print('--------------------------------');
-    print(deckTitlesString);
     notifyListeners();
     return _deckTitlesString;
   }

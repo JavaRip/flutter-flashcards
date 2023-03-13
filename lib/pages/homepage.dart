@@ -5,7 +5,7 @@ import 'create/create_provider.dart';
 import 'homepage_provider.dart';
 
 class Homepage extends StatelessWidget {
-  const Homepage({Key? key});
+  const Homepage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,19 +43,24 @@ class _CreatePageBody extends StatelessWidget {
             .deckTitlesString
             .length,
         itemBuilder: (BuildContext context, int index) {
-          return Container(
-            height: 50,
-            color: Colors.blue,
-            padding: const EdgeInsets.all(16.0),
-            child: Center(
-              child: Text(Provider.of<HomepageProvider>(context, listen: false)
-                  .deckTitlesString[index]),
+          return InkWell(
+            onTap: () => Navigator.of(context).pushNamed('/review'),
+            child: Container(
+              height: 50,
+              color: Colors.blue,
+              padding: const EdgeInsets.all(16.0),
+              child: Center(
+                child: Text(
+                    Provider.of<HomepageProvider>(context, listen: false)
+                        .deckTitlesData[index]
+                        .name),
+              ),
             ),
           );
         },
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => {Navigator.of(context).pushNamed('/deck')},
+        onPressed: () => Navigator.of(context).pushNamed('/deck'),
         label: const Text('New Deck'),
         icon: const Icon(Icons.add),
       ),
