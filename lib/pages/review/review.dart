@@ -8,7 +8,7 @@ class ReviewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Nav Bar')),
+      appBar: AppBar(title: Text('Deck Page')),
       body: ChangeNotifierProvider(
         create: (context) => ReviewProvider(),
         child: _CreatePageBody(),
