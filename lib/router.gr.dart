@@ -14,10 +14,11 @@
 import 'package:auto_route/auto_route.dart' as _i5;
 import 'package:flutter/material.dart' as _i6;
 
+import 'data/db.dart' as _i7;
 import 'pages/create/create.dart' as _i2;
-import 'pages/deck/deck.dart' as _i4;
+import 'pages/deck/deck.dart' as _i3;
 import 'pages/homepage.dart' as _i1;
-import 'pages/review/review.dart' as _i3;
+import 'pages/newdeck/newdeck.dart' as _i4;
 
 class AppRouter extends _i5.RootStackRouter {
   AppRouter([_i6.GlobalKey<_i6.NavigatorState>? navigatorKey])
@@ -37,16 +38,20 @@ class AppRouter extends _i5.RootStackRouter {
         child: const _i2.CreatePage(),
       );
     },
-    ReviewRoute.name: (routeData) {
+    DeckRoute.name: (routeData) {
+      final args = routeData.argsAs<DeckRouteArgs>();
       return _i5.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i3.ReviewPage(),
+        child: _i3.DeckPage(
+          key: args.key,
+          deck: args.deck,
+        ),
       );
     },
-    DeckRoute.name: (routeData) {
+    NewdeckRoute.name: (routeData) {
       return _i5.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i4.DeckPage(),
+        child: const _i4.NewdeckPage(),
       );
     },
   };
@@ -62,12 +67,12 @@ class AppRouter extends _i5.RootStackRouter {
           path: '/create-page',
         ),
         _i5.RouteConfig(
-          ReviewRoute.name,
-          path: '/review-page',
-        ),
-        _i5.RouteConfig(
           DeckRoute.name,
           path: '/deck-page',
+        ),
+        _i5.RouteConfig(
+          NewdeckRoute.name,
+          path: '/newdeck-page',
         ),
       ];
 }
@@ -97,25 +102,47 @@ class CreateRoute extends _i5.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.ReviewPage]
-class ReviewRoute extends _i5.PageRouteInfo<void> {
-  const ReviewRoute()
-      : super(
-          ReviewRoute.name,
-          path: '/review-page',
-        );
-
-  static const String name = 'ReviewRoute';
-}
-
-/// generated route for
-/// [_i4.DeckPage]
-class DeckRoute extends _i5.PageRouteInfo<void> {
-  const DeckRoute()
-      : super(
+/// [_i3.DeckPage]
+class DeckRoute extends _i5.PageRouteInfo<DeckRouteArgs> {
+  DeckRoute({
+    _i6.Key? key,
+    required _i7.DeckData deck,
+  }) : super(
           DeckRoute.name,
           path: '/deck-page',
+          args: DeckRouteArgs(
+            key: key,
+            deck: deck,
+          ),
         );
 
   static const String name = 'DeckRoute';
+}
+
+class DeckRouteArgs {
+  const DeckRouteArgs({
+    this.key,
+    required this.deck,
+  });
+
+  final _i6.Key? key;
+
+  final _i7.DeckData deck;
+
+  @override
+  String toString() {
+    return 'DeckRouteArgs{key: $key, deck: $deck}';
+  }
+}
+
+/// generated route for
+/// [_i4.NewdeckPage]
+class NewdeckRoute extends _i5.PageRouteInfo<void> {
+  const NewdeckRoute()
+      : super(
+          NewdeckRoute.name,
+          path: '/newdeck-page',
+        );
+
+  static const String name = 'NewdeckRoute';
 }

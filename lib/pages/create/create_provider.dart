@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import '../../data/data.dart';
 
 class CreateFlashcardProvider extends ChangeNotifier {
   String _frontText = '';

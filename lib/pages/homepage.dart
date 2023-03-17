@@ -1,8 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flashcards/pages/deck/deck.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../data/data.dart';
 import 'homepage_provider.dart';
 import '../router.gr.dart';
 
@@ -45,11 +43,10 @@ class _CreatePageBody extends StatelessWidget {
             .deckTitlesString
             .length,
         itemBuilder: (BuildContext context, int index) {
-          final deckId = Provider.of<HomepageProvider>(context, listen: false)
-              .deckTitlesData[index]
-              .id;
+          final deck = Provider.of<HomepageProvider>(context, listen: false)
+              .deckTitlesData[index];
           return InkWell(
-            onTap: () => context.router.push(const ReviewRoute()),
+            onTap: () => context.router.push(DeckRoute(deck: deck)),
             child: Container(
               height: 50,
               color: Colors.blue,
@@ -65,7 +62,7 @@ class _CreatePageBody extends StatelessWidget {
         },
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => context.router.push(const DeckRoute()),
+        onPressed: () => context.router.push(const NewdeckRoute()),
         label: const Text('New Deck'),
         icon: const Icon(Icons.add),
       ),
