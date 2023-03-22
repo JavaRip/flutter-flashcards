@@ -1,20 +1,23 @@
-import 'package:flashcards/di.dart';
 import 'package:flutter/foundation.dart';
 
 import '../data/dao/deck_dao.dart';
 import '../data/db.dart';
 
 class HomepageProvider extends ChangeNotifier {
+  final DeckDao _deckDao;
+
   List<DeckData> _deckTitlesData = [];
   List<String> _deckTitlesString = [];
 
   List<DeckData> get deckTitlesData => _deckTitlesData;
   List<String> get deckTitlesString => _deckTitlesString;
 
-  Future<List<String>> setDeckTitles() async {
-    final deckDao = locator<DeckDao>();
+  HomepageProvider({required DeckDao deckDao})
+      : _deckDao = deckDao,
+        super();
 
-    _deckTitlesData = await deckDao.getAllDecks();
+  Future<List<String>> setDeckTitles() async {
+    _deckTitlesData = await _deckDao.getAllDecks();
     _deckTitlesString =
         _deckTitlesData.map((deckData) => deckData.name).toList();
 

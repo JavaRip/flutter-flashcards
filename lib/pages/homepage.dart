@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flashcards/di.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'homepage_provider.dart';
@@ -12,7 +13,9 @@ class Homepage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Decks')),
       body: ChangeNotifierProvider(
-        create: (context) => HomepageProvider(),
+        create: (context) => HomepageProvider(
+          deckDao: locator(),
+        ),
         child: Consumer<HomepageProvider>(
           builder: (context, homepageProvider, _) =>
               FutureBuilder<List<String>>(
