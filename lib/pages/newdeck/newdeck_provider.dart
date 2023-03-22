@@ -1,3 +1,4 @@
+import 'package:flashcards/di.dart';
 import 'package:flutter/foundation.dart';
 import '../../data/data.dart';
 
@@ -12,8 +13,7 @@ class NewdeckProvider extends ChangeNotifier {
   }
 
   Future<int> saveDeck() async {
-    LocalDb localDb = LocalDb();
-    DeckDao deckDao = DeckDao(localDb);
+    final deckDao = locator<DeckDao>();
 
     var deckId = await deckDao.addDeck(_deckName);
 

@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 
 import './di.config.dart';
 
-final getIt = GetIt.instance;
+final locator = GetIt.instance;
 
 @InjectableInit()
-void configureDependencies() => getIt.init();
+void configureDependencies() => locator.init();

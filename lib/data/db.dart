@@ -4,6 +4,7 @@ import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
+import 'package:injectable/injectable.dart';
 
 import './tables.dart';
 
@@ -12,6 +13,7 @@ part 'db.g.dart';
 // this annotation tells drift to prepare a database class that uses both of the
 // tables we just defined. We'll see how to use that database class in a moment.
 @DriftDatabase(tables: [Deck, Card, Review])
+@singleton
 class LocalDb extends _$LocalDb {
   LocalDb() : super(_openConnection());
   // you should bump this number whenever you change or add a table definition.

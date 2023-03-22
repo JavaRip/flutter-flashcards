@@ -1,4 +1,5 @@
 import 'package:drift/drift.dart';
+import 'package:injectable/injectable.dart';
 import '../db.dart';
 import '../tables.dart';
 
@@ -8,6 +9,7 @@ part 'deck_dao.g.dart';
 // fields for the tables. The <MyDatabase> type annotation is the database class
 // that should use this dao.
 @DriftAccessor(tables: [Deck])
+@injectable
 class DeckDao extends DatabaseAccessor<LocalDb> with _$DeckDaoMixin {
   // this constructor is required so that the main database can create an instance
   // of this object.
