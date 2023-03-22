@@ -1,5 +1,6 @@
 import 'package:drift/drift.dart';
 import '../db.dart';
+import '../tables.dart';
 
 part 'card_dao.g.dart';
 
