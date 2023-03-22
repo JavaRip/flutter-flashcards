@@ -5,15 +5,11 @@ import 'package:drift/native.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
 
-// assuming that your file is called filename.dart. This will give an error at
-// first, but it's needed for drift to know about the generated code
 part 'db.g.dart';
 
-// this will generate a table called "todos" for us. The rows of that table will
-// be represented by a class called "Todo".
 class Deck extends Table {
   IntColumn get id => integer().autoIncrement()();
-  TextColumn get name => text().withLength(min: 6, max: 32)();
+  TextColumn get name => text().withLength(min: 1, max: 32)();
 }
 
 class Card extends Table {
@@ -48,8 +44,6 @@ LazyDatabase _openConnection() {
     // for your app.
     final dbFolder = await getApplicationDocumentsDirectory();
     final file = File(p.join(dbFolder.path, 'db.sqlite'));
-    print('================================');
-    print(file);
     return NativeDatabase.createInBackground(file);
   });
 }

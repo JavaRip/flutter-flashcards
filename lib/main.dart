@@ -1,30 +1,23 @@
-import 'package:flashcards/pages/homepage.dart';
 import 'package:flutter/material.dart';
-import 'package:flashcards/pages/create/create.dart';
-import 'package:flashcards/pages/review/review.dart';
-import 'package:flashcards/pages/deck/deck.dart';
+import 'router.gr.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(App());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+// assuing this is the root widget of your App
+class App extends StatelessWidget {
+  // make sure you don't initiate your router
+  // inside of the build function.
+  final _appRouter = AppRouter();
 
-  // This widget is the root of your application.
+  App({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      routes: {
-        '/': (context) => const Homepage(),
-        '/create': (context) => const CreatePage(),
-        '/review': (context) => const ReviewPage(),
-        '/deck': (context) => const DeckPage(),
-      },
+    return MaterialApp.router(
+      routerDelegate: _appRouter.delegate(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
     );
   }
 }

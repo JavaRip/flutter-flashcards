@@ -1,8 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../data/data.dart';
-import 'create/create_provider.dart';
 import 'homepage_provider.dart';
+import '../router.gr.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -43,8 +43,10 @@ class _CreatePageBody extends StatelessWidget {
             .deckTitlesString
             .length,
         itemBuilder: (BuildContext context, int index) {
+          final deck = Provider.of<HomepageProvider>(context, listen: false)
+              .deckTitlesData[index];
           return InkWell(
-            onTap: () => Navigator.of(context).pushNamed('/review'),
+            onTap: () => context.router.push(DeckRoute(deck: deck)),
             child: Container(
               height: 50,
               color: Colors.blue,
@@ -60,7 +62,7 @@ class _CreatePageBody extends StatelessWidget {
         },
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => Navigator.of(context).pushNamed('/deck'),
+        onPressed: () => context.router.push(const NewdeckRoute()),
         label: const Text('New Deck'),
         icon: const Icon(Icons.add),
       ),
