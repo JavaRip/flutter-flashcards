@@ -1,10 +1,16 @@
 import 'package:flutter/foundation.dart';
 import '../../data/data.dart';
 
-class NewdeckProvider extends ChangeNotifier {
+class NewDeckProvider extends ChangeNotifier {
+  final DeckDao _deckDao;
+
   String _deckName = '';
 
   String get deckName => _deckName;
+
+  NewDeckProvider({required DeckDao deckDao})
+      : _deckDao = deckDao,
+        super();
 
   void setDeckName(String value) {
     _deckName = value;
@@ -12,10 +18,7 @@ class NewdeckProvider extends ChangeNotifier {
   }
 
   Future<int> saveDeck() async {
-    LocalDb localDb = LocalDb();
-    DeckDao deckDao = DeckDao(localDb);
-
-    var deckId = await deckDao.addDeck(_deckName);
+    var deckId = await _deckDao.addDeck(_deckName);
 
     notifyListeners();
     return deckId;

@@ -1,6 +1,7 @@
+import 'package:flashcards/di.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'newdeck_provider.dart';
+import 'new_deck_provider.dart';
 
 class NewdeckPage extends StatelessWidget {
   const NewdeckPage({super.key});
@@ -10,7 +11,7 @@ class NewdeckPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Create Deck')),
       body: ChangeNotifierProvider(
-        create: (context) => NewdeckProvider(),
+        create: (context) => NewDeckProvider(deckDao: locator()),
         child: _CreatePageBody(),
       ),
     );
@@ -30,14 +31,14 @@ class _CreatePageBody extends StatelessWidget {
             hintText: 'Deck name',
           ),
           onChanged: (text) {
-            Provider.of<NewdeckProvider>(context, listen: false)
+            Provider.of<NewDeckProvider>(context, listen: false)
                 .setDeckName(text);
           },
         ),
         const Spacer(),
         ElevatedButton(
           onPressed: () async {
-            await Provider.of<NewdeckProvider>(context, listen: false)
+            await Provider.of<NewDeckProvider>(context, listen: false)
                 .saveDeck();
           },
           child: const Text('Create Deck'),
