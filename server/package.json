@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start:dev": "nodemon server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,9 +13,16 @@
   "dependencies": {
     "@apollo/server": "^4.5.0",
     "class-validator": "^0.14.0",
+    "dotenv": "^16.0.3",
     "graphql": "^16.6.0",
+    "nodemon": "^2.0.22",
+    "pg": "^8.10.0",
     "reflect-metadata": "^0.1.13",
+    "ts-node": "^10.9.1",
     "type-graphql": "^2.0.0-beta.1",
     "typescript": "^5.0.2"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.6.6"
   }
 }

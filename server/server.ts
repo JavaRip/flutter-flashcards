@@ -1,21 +1,39 @@
-import express, { Request, Response, Application, RequestHandler, NextFunction } from 'express';
-const app: Application = express();
+import 'reflect-metadata';
+import { ApolloServer } from '@apollo/server';
+import { buildSchema } from 'type-graphql';
+import { startStandaloneServer } from '@apollo/server/standalone'
+import { Client } from 'pg'
+import * as dotenv from "dotenv";
+dotenv.config({ path: __dirname + '/.env' });
 
-function asyncWrap(f: RequestHandler): RequestHandler {
-  return (req: Request, res: Response, next: NextFunction) => {
-    Promise.resolve(f(req, res, next))
-      .catch((e) => next(e || new Error()));
-  };
+export class dbConn {
+    static client = dbConn.getClient();
+    
+    static async getClient(): Promise<Client> {
+        const client = await new Client({
+            host: process.env.PG_HOST,
+            port: Number(process.env.PG_PORT),
+            user: process.env.PG_USER,
+            password: process.env.PG_PASSWORD,
+            database: process.env.PG_DATABASE,
+            ssl: true,
+        })
+        client.connect()
+        return client;
+    };
+};
+
+console.log(process.env.PG_HOST)
+console.log(process.env.PG_PORT)
+console.log(process.env.PG_USER)
+console.log(process.env.PG_PASSWORD)
+console.log(process.env.PG_DATABASE)
+
+async function bootstrap() {
+    const schema = await buildSchema({resolvers: [__dirname + '/resolvers/**/*.ts']})
+    const server = new ApolloServer({schema: schema})
+    const { url } = await startStandaloneServer(server, { listen: { port: 8080 }})
+    console.log(url)
 }
 
-export function exampleRoute(req: Request, res: Response): void {
-  console.log(req.body)
-  res.json();
-}
-
-app.use(express.static('dist/client/'));
-app.post('/getMove', express.json(), asyncWrap(exampleRoute));
-
-const port = 8080;
-console.log(`server running on ${port}`);
-app.listen(port);
+bootstrap()
