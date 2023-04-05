@@ -1,0 +1,3 @@
+/home/kane/code/flutter-flashcards/build/linux/x64/debug/_deps/sqlite3-subbuild/CMakeFiles/rebuild_cache.dir
+/home/kane/code/flutter-flashcards/build/linux/x64/debug/_deps/sqlite3-subbuild/CMakeFiles/edit_cache.dir
+/home/kane/code/flutter-flashcards/build/linux/x64/debug/_deps/sqlite3-subbuild/CMakeFiles/sqlite3-populate.dir
