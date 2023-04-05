@@ -10,10 +10,7 @@ export class DeckResolver {
     async decks(): Promise<Deck[]> {
         const client = await dbConn.client;
         const data = await client.query('SELECT * FROM Deck')
-        console.log(data)
-        return [
-            new Deck('0', 'name')
-        ];
+        return data.rows;
     }
 
     @Mutation(() => Deck)

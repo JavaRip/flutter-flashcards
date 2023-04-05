@@ -14,9 +14,9 @@ export class Card {
     @Field()
     back!: string;
 
-    constructor(id: string, name: string, front: string, back: string) {
+    constructor(id: string, deckId: string, front: string, back: string) {
         this.id = id
-        this.deckId = name
+        this.deckId = deckId 
         this.front = front
         this.back = back
     }

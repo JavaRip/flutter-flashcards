@@ -1,5 +1,6 @@
 import { Arg, Mutation, Query, Resolver } from "type-graphql";
 import { Card } from "../models";
+import { dbConn } from "../server";
 
 @Resolver()
 export class CardResolver {
@@ -7,15 +8,21 @@ export class CardResolver {
 
     @Query(() => [Card])
     async cards(): Promise<Card[]> {
-
-        return [
-            new Card('0', '0', 'hello', 'world')
-        ];
+        const client = await dbConn.client;
+        const data = await client.query('SELECT * FROM Card');
+        console.log(data.rows)
+        return data.rows.map(x => {
+            return {
+                id: x.id,
+                deckId: x.deckid,
+                front: x.front,
+                back: x.back,
+            }
+        })
     }
 
     @Mutation(() => Card)
-    async createsCard(
-        @Arg('deckId', {nullable: false}) front: string, back: string): Promise<Card> {
+    async createsCard(@Arg('deckId', {nullable: false}) front: string, back: string): Promise<Card> {
         return new Card('0', '0', 'hello', 'newcard')
     }
 }
