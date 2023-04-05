@@ -9,7 +9,7 @@ export class DeckResolver {
     @Query(() => [Deck])
     async decks(): Promise<Deck[]> {
         const client = await dbConn.client;
-        const data = client.query('SELECT * FROM Deck')
+        const data = await client.query('SELECT * FROM Deck')
         console.log(data)
         return [
             new Deck('0', 'name')

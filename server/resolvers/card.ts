@@ -6,7 +6,7 @@ export class CardResolver {
     constructor() {}
 
     @Query(() => [Card])
-    async decks(): Promise<Card[]> {
+    async cards(): Promise<Card[]> {
 
         return [
             new Card('0', '0', 'hello', 'world')

@@ -6,7 +6,7 @@ export class ReviewResolver {
     constructor() {}
 
     @Query(() => [Review])
-    async decks(): Promise<Review[]> {
+    async reviews(): Promise<Review[]> {
 
         return [
             new Review('0', '0', 1680720460, true)
@@ -14,7 +14,7 @@ export class ReviewResolver {
     }
 
     @Mutation(() => Review)
-    async createsCard(
+    async createsReview(
         @Arg('cardId', {nullable: false}) ts: number, correct: boolean): Promise<Review> {
         return new Review('0', '0', 1680720460, true)
     }

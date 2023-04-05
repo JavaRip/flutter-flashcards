@@ -18,21 +18,16 @@ export class dbConn {
             database: process.env.PG_DATABASE,
             ssl: false,
         })
-        client.connect()
+        client.connect();
+        
         return client;
     };
 };
 
-console.log(process.env.PG_HOST)
-console.log(process.env.PG_PORT)
-console.log(process.env.PG_USER)
-console.log(process.env.PG_PASSWORD)
-console.log(process.env.PG_DATABASE)
-
 async function bootstrap() {
     const schema = await buildSchema({resolvers: [__dirname + '/resolvers/**/*.ts']})
     const server = new ApolloServer({schema: schema})
-    const { url } = await startStandaloneServer(server, { listen: { port: 8080 }})
+    const { url } = await startStandaloneServer(server, { listen: { port: Number(process.env.GQLPORT) || 4000 }})
     console.log(url)
 }
 
