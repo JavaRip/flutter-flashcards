@@ -10,7 +10,8 @@ export class CardResolver {
     async cards(): Promise<Card[]> {
         const client = await dbConn.client;
         const data = await client.query('SELECT * FROM Card');
-        console.log(data.rows)
+
+        // map required because deckId in database is deckid in data.rows. snake_case?
         return data.rows.map(x => {
             return {
                 id: x.id,

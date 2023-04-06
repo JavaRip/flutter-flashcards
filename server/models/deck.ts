@@ -1,4 +1,5 @@
 import { Field, ObjectType } from "type-graphql";
+import { Card } from "./card";
 
 @ObjectType()
 export class Deck {
@@ -8,8 +9,12 @@ export class Deck {
     @Field()
     name: string;
 
-    constructor(id: string, name: string) {
+    @Field(() => [Card])
+    cards: Card[];
+
+    constructor(id: string, name: string, cards: Card[]) {
         this.id = id
         this.name = name
+        this.cards = cards
     }
 } 
