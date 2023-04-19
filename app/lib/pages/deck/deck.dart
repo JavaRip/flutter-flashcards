@@ -6,7 +6,7 @@ import 'deck_provider.dart';
 class DeckPage extends StatelessWidget {
   const DeckPage({super.key, required this.deck});
 
-  final DeckData deck;
+  final DeckTableData deck;
 
   @override
   Widget build(BuildContext context) {

@@ -1,0 +1,10 @@
+query getAllDecks {
+  decks {
+  id
+  name
+    cards {
+      front
+      back
+    }
+  }
+}
