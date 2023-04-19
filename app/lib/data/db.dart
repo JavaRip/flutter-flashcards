@@ -12,7 +12,7 @@ part 'db.g.dart';
 
 // this annotation tells drift to prepare a database class that uses both of the
 // tables we just defined. We'll see how to use that database class in a moment.
-@DriftDatabase(tables: [Deck, Card, Review])
+@DriftDatabase(tables: [DeckTable, CardTable, ReviewTable])
 @singleton
 class LocalDb extends _$LocalDb {
   LocalDb() : super(_openConnection());

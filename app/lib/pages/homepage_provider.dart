@@ -6,10 +6,10 @@ import '../data/db.dart';
 class HomepageProvider extends ChangeNotifier {
   final DeckDao _deckDao;
 
-  List<DeckData> _deckTitlesData = [];
+  List<DeckTableData> _deckTitlesData = [];
   List<String> _deckTitlesString = [];
 
-  List<DeckData> get deckTitlesData => _deckTitlesData;
+  List<DeckTableData> get deckTitlesData => _deckTitlesData;
   List<String> get deckTitlesString => _deckTitlesString;
 
   HomepageProvider({required DeckDao deckDao})

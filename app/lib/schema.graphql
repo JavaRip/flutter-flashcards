@@ -1,0 +1,30 @@
+type Card {
+  id: String!
+  front: String!
+  back: String!
+}
+
+type Deck {
+  id: String!
+  name: String!
+  cards: [Card!]!
+}
+
+type Review {
+  id: String!
+  cardId: String!
+  ts: Float!
+  correct: Boolean!
+}
+
+type Query {
+  cards: [Card!]!
+  decks: [Deck!]!
+  reviews: [Review!]!
+}
+
+type Mutation {
+  createsCard(deckId: String!): Card!
+  createsDeck(name: String!): Deck!
+  createsReview(cardId: Float!): Review!
+}
