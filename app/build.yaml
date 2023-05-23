@@ -2,6 +2,7 @@ targets:
   $default:
     builders:
       graphql_codegen:
+        enabled: true
         options:
           clients:
             - graphql

@@ -1,4 +1,6 @@
 import 'package:drift/drift.dart';
+import 'package:injectable/injectable.dart';
+import '../../models/deck_card.dart';
 import '../db.dart';
 import '../tables.dart';
 
@@ -8,10 +10,11 @@ part 'card_dao.g.dart';
 // fields for the tables. The <MyDatabase> type annotation is the database class
 // that should use this dao.
 @DriftAccessor(tables: [DeckTable, CardTable])
-class CardsDao extends DatabaseAccessor<LocalDb> with _$CardsDaoMixin {
+@injectable
+class CardDao extends DatabaseAccessor<LocalDb> with _$CardDaoMixin {
   // this constructor is required so that the main database can create an instance
   // of this object.
-  CardsDao(LocalDb db) : super(db);
+  CardDao(LocalDb db) : super(db);
 
   Future<List<CardTableData>> getAllCards() => select(cardTable).get();
   Stream<List<CardTableData>> watchAllCards() => select(cardTable).watch();
@@ -29,4 +32,7 @@ class CardsDao extends DatabaseAccessor<LocalDb> with _$CardsDaoMixin {
       ),
     );
   }
+
+  Future<List<CardTableData>> getCardsByDeckId(String deckId) =>
+    (select(cardTable)..where((table) => table.deckId.equals(int.parse(deckId)))).get();
 }

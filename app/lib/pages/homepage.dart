@@ -40,29 +40,44 @@ class _CreatePageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(
-        padding: const EdgeInsets.all(8),
-        itemCount: Provider.of<HomepageProvider>(context, listen: false)
-            .deckTitlesString
-            .length,
-        itemBuilder: (BuildContext context, int index) {
-          final deck = Provider.of<HomepageProvider>(context, listen: false)
-              .deckTitlesData[index];
-          return InkWell(
-            onTap: () => context.router.push(DeckRoute(deck: deck)),
-            child: Container(
-              height: 50,
-              color: Colors.blue,
-              padding: const EdgeInsets.all(16.0),
-              child: Center(
-                child: Text(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(
+            child: ListView.builder(
+              padding: const EdgeInsets.all(8),
+              itemCount: Provider.of<HomepageProvider>(context, listen: false)
+                  .deckTitlesString
+                  .length,
+              itemBuilder: (BuildContext context, int index) {
+                final deck =
                     Provider.of<HomepageProvider>(context, listen: false)
-                        .deckTitlesData[index]
-                        .name),
-              ),
+                        .deckTitlesData[index];
+                return Center(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () =>
+                            context.router.push(DeckRoute(deck: deck)),
+                        child: Container(
+                          padding: const EdgeInsets.all(16),
+                          child: Center(
+                            child: Text(
+                              Provider.of<HomepageProvider>(context, listen: false)
+                                  .deckTitlesData[index]
+                                  .name,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
             ),
-          );
-        },
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => context.router.push(const NewdeckRoute()),

@@ -1,7 +1,7 @@
 # Make file names absolute:
 #
-get_filename_component(filename "/home/kane/code/flutter-flashcards/build/linux/x64/debug/_deps/sqlite3-subbuild/sqlite3-populate-prefix/src/sqlite-autoconf-3410000.tar.gz" ABSOLUTE)
-get_filename_component(directory "/home/kane/code/flutter-flashcards/build/linux/x64/debug/_deps/sqlite3-src" ABSOLUTE)
+get_filename_component(filename "/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/_deps/sqlite3-subbuild/sqlite3-populate-prefix/src/sqlite-autoconf-3410200.tar.gz" ABSOLUTE)
+get_filename_component(directory "/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/_deps/sqlite3-src" ABSOLUTE)
 
 message(STATUS "extracting...
      src='${filename}'

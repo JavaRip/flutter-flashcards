@@ -4,3 +4,4 @@ class Deck {
 
   Deck({required this.id, required this.name});
 }
+

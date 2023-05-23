@@ -11,9 +11,9 @@ project(sqlite3-populate NONE)
 
 include(ExternalProject)
 ExternalProject_Add(sqlite3-populate
-                     "UPDATE_DISCONNECTED" "False" "URL" "https://sqlite.org/2023/sqlite-autoconf-3410000.tar.gz"
-                    SOURCE_DIR          "/home/kane/code/flutter-flashcards/build/linux/x64/debug/_deps/sqlite3-src"
-                    BINARY_DIR          "/home/kane/code/flutter-flashcards/build/linux/x64/debug/_deps/sqlite3-build"
+                     "UPDATE_DISCONNECTED" "False" "URL" "https://sqlite.org/2023/sqlite-autoconf-3410200.tar.gz"
+                    SOURCE_DIR          "/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/_deps/sqlite3-src"
+                    BINARY_DIR          "/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/_deps/sqlite3-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""

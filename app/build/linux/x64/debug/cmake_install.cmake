@@ -1,8 +1,8 @@
-# Install script for directory: /home/kane/code/flutter-flashcards/linux
+# Install script for directory: /home/kane/code/flutter-flashcards/app/linux
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/kane/code/flutter-flashcards/build/linux/x64/debug/bundle")
+  set(CMAKE_INSTALL_PREFIX "/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/bundle")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,96 +39,96 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xRuntimex" OR NOT CMAKE_INSTALL_COMPONENT)
   
-  file(REMOVE_RECURSE "/home/kane/code/flutter-flashcards/build/linux/x64/debug/bundle/")
+  file(REMOVE_RECURSE "/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/bundle/")
   
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xRuntimex" OR NOT CMAKE_INSTALL_COMPONENT)
-  if(EXISTS "$ENV{DESTDIR}/home/kane/code/flutter-flashcards/build/linux/x64/debug/bundle/flashcards" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/kane/code/flutter-flashcards/build/linux/x64/debug/bundle/flashcards")
+  if(EXISTS "$ENV{DESTDIR}/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/bundle/flashcards" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/bundle/flashcards")
     file(RPATH_CHECK
-         FILE "$ENV{DESTDIR}/home/kane/code/flutter-flashcards/build/linux/x64/debug/bundle/flashcards"
+         FILE "$ENV{DESTDIR}/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/bundle/flashcards"
          RPATH "$ORIGIN/lib")
   endif()
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/kane/code/flutter-flashcards/build/linux/x64/debug/bundle/flashcards")
+   "/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/bundle/flashcards")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/kane/code/flutter-flashcards/build/linux/x64/debug/bundle" TYPE EXECUTABLE FILES "/home/kane/code/flutter-flashcards/build/linux/x64/debug/intermediates_do_not_run/flashcards")
-  if(EXISTS "$ENV{DESTDIR}/home/kane/code/flutter-flashcards/build/linux/x64/debug/bundle/flashcards" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/kane/code/flutter-flashcards/build/linux/x64/debug/bundle/flashcards")
+file(INSTALL DESTINATION "/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/bundle" TYPE EXECUTABLE FILES "/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/intermediates_do_not_run/flashcards")
+  if(EXISTS "$ENV{DESTDIR}/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/bundle/flashcards" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/bundle/flashcards")
     file(RPATH_CHANGE
-         FILE "$ENV{DESTDIR}/home/kane/code/flutter-flashcards/build/linux/x64/debug/bundle/flashcards"
-         OLD_RPATH "/home/kane/code/flutter-flashcards/build/linux/x64/debug/plugins/sqlite3_flutter_libs:/home/kane/code/flutter-flashcards/linux/flutter/ephemeral:"
+         FILE "$ENV{DESTDIR}/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/bundle/flashcards"
+         OLD_RPATH "/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/plugins/sqlite3_flutter_libs:/home/kane/code/flutter-flashcards/app/linux/flutter/ephemeral:"
          NEW_RPATH "$ORIGIN/lib")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/snap/flutter/current/usr/bin/strip" "$ENV{DESTDIR}/home/kane/code/flutter-flashcards/build/linux/x64/debug/bundle/flashcards")
+      execute_process(COMMAND "/snap/flutter/current/usr/bin/strip" "$ENV{DESTDIR}/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/bundle/flashcards")
     endif()
   endif()
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xRuntimex" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/kane/code/flutter-flashcards/build/linux/x64/debug/bundle/data/icudtl.dat")
+   "/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/bundle/data/icudtl.dat")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/kane/code/flutter-flashcards/build/linux/x64/debug/bundle/data" TYPE FILE FILES "/home/kane/code/flutter-flashcards/linux/flutter/ephemeral/icudtl.dat")
+file(INSTALL DESTINATION "/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/bundle/data" TYPE FILE FILES "/home/kane/code/flutter-flashcards/app/linux/flutter/ephemeral/icudtl.dat")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xRuntimex" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/kane/code/flutter-flashcards/build/linux/x64/debug/bundle/lib/libflutter_linux_gtk.so")
+   "/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/bundle/lib/libflutter_linux_gtk.so")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/kane/code/flutter-flashcards/build/linux/x64/debug/bundle/lib" TYPE FILE FILES "/home/kane/code/flutter-flashcards/linux/flutter/ephemeral/libflutter_linux_gtk.so")
+file(INSTALL DESTINATION "/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/bundle/lib" TYPE FILE FILES "/home/kane/code/flutter-flashcards/app/linux/flutter/ephemeral/libflutter_linux_gtk.so")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xRuntimex" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/kane/code/flutter-flashcards/build/linux/x64/debug/bundle/lib/libsqlite3_flutter_libs_plugin.so")
+   "/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/bundle/lib/libsqlite3_flutter_libs_plugin.so")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/kane/code/flutter-flashcards/build/linux/x64/debug/bundle/lib" TYPE FILE FILES "/home/kane/code/flutter-flashcards/build/linux/x64/debug/plugins/sqlite3_flutter_libs/libsqlite3_flutter_libs_plugin.so")
+file(INSTALL DESTINATION "/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/bundle/lib" TYPE FILE FILES "/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/plugins/sqlite3_flutter_libs/libsqlite3_flutter_libs_plugin.so")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xRuntimex" OR NOT CMAKE_INSTALL_COMPONENT)
   
-  file(REMOVE_RECURSE "/home/kane/code/flutter-flashcards/build/linux/x64/debug/bundle/data/flutter_assets")
+  file(REMOVE_RECURSE "/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/bundle/data/flutter_assets")
   
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xRuntimex" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/kane/code/flutter-flashcards/build/linux/x64/debug/bundle/data/flutter_assets")
+   "/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/bundle/data/flutter_assets")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/kane/code/flutter-flashcards/build/linux/x64/debug/bundle/data" TYPE DIRECTORY FILES "/home/kane/code/flutter-flashcards/build//flutter_assets")
+file(INSTALL DESTINATION "/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/bundle/data" TYPE DIRECTORY FILES "/home/kane/code/flutter-flashcards/app/build//flutter_assets")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/kane/code/flutter-flashcards/build/linux/x64/debug/flutter/cmake_install.cmake")
-  include("/home/kane/code/flutter-flashcards/build/linux/x64/debug/plugins/sqlite3_flutter_libs/cmake_install.cmake")
+  include("/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/flutter/cmake_install.cmake")
+  include("/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/plugins/sqlite3_flutter_libs/cmake_install.cmake")
 
 endif()
 
@@ -140,5 +140,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/kane/code/flutter-flashcards/build/linux/x64/debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

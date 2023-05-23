@@ -1,8 +1,8 @@
-# Install script for directory: /home/kane/code/flutter-flashcards/linux/flutter/ephemeral/.plugin_symlinks/sqlite3_flutter_libs/linux
+# Install script for directory: /home/kane/code/flutter-flashcards/app/linux/flutter/ephemeral/.plugin_symlinks/sqlite3_flutter_libs/linux
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/kane/code/flutter-flashcards/build/linux/x64/debug/bundle")
+  set(CMAKE_INSTALL_PREFIX "/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/bundle")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

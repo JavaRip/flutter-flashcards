@@ -72,5 +72,5 @@ endif()
 
 set(CMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES "/usr/local/include;/snap/flutter/130/usr/lib/llvm-10/lib/clang/10.0.0/include;/usr/include/x86_64-linux-gnu;/usr/include")
 set(CMAKE_C_IMPLICIT_LINK_LIBRARIES "blkid;gcrypt;lzma;lz4;gpg-error;uuid;pthread;dl;epoxy;gcc;gcc_s;c;gcc;gcc_s")
-set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "/snap/flutter/current/usr/lib/gcc/x86_64-linux-gnu/9;/snap/flutter/current/usr/lib/x86_64-linux-gnu;/snap/flutter/current/lib/x86_64-linux-gnu;/snap/flutter/current/usr/lib;/usr/lib/gcc/x86_64-linux-gnu/11;/usr/lib/x86_64-linux-gnu;/usr/lib64;/lib/x86_64-linux-gnu;/lib64;/usr/lib;/snap/flutter/130/usr/lib/llvm-10/lib;/lib")
+set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "/snap/flutter/current/usr/lib/gcc/x86_64-linux-gnu/9;/snap/flutter/current/usr/lib/x86_64-linux-gnu;/snap/flutter/current/lib/x86_64-linux-gnu;/snap/flutter/current/usr/lib;/usr/lib/gcc/x86_64-linux-gnu/12;/usr/lib/x86_64-linux-gnu;/usr/lib64;/lib/x86_64-linux-gnu;/lib64;/usr/lib;/snap/flutter/130/usr/lib/llvm-10/lib;/lib")
 set(CMAKE_C_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")
