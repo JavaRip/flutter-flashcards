@@ -1,6 +1,6 @@
 import "package:flutter/foundation.dart";
 
-class ReviewProvider extends ChangeNotifier {
+class DeckProvider extends ChangeNotifier {
   // load cards from db
 
   void helloWorld() {

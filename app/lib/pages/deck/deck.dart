@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../data/db.dart';
 import '../../../router.gr.dart';
-import 'review_provider.dart';
+import 'deck_provider.dart';
 
 class DeckPage extends StatelessWidget {
   const DeckPage({super.key, required this.deck});
@@ -16,7 +16,7 @@ class DeckPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Deck Page: ${deck.name}')),
       body: ChangeNotifierProvider(
-        create: (context) => ReviewProvider(),
+        create: (context) => DeckProvider(),
         child: _CreatePageBody(deck: deck),
       ),
     );
