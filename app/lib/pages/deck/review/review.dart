@@ -21,15 +21,59 @@ class ReviewPage extends StatelessWidget {
           deck: deck,
           cardDao: locator()
         ),
-        child: _CreatePageBody(),
+        child: Consumer<ReviewProvider>(builder: (context, reviewProvider, _) {
+          return FutureBuilder<List<DeckCard>>(
+            future: reviewProvider.loadCards(deck),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                final card = reviewProvider.getCards()[reviewProvider.currentCardIndex];
+                return _CreatePageBody(card: card);
+              } else if (snapshot.hasError) {
+                return Text('${snapshot.error}');
+              } else {
+                return const CircularProgressIndicator();
+              }
+            },
+          );
+        }),
       ),
     );
   }
 }
 
 class _CreatePageBody extends StatelessWidget {
+  final DeckCard card;
+  const _CreatePageBody({Key? key, required this.card}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Text('hello from review page');
+    final lastIndex = Provider.of<ReviewProvider>(context, listen: false).cards.length - 1;
+    final cardIndex = Provider.of<ReviewProvider>(context, listen: false).currentCardIndex;
+    final end = Provider.of<ReviewProvider>(context, listen: false).end;
+
+    print('lastIndex: $lastIndex');
+    print('cardIndex: $cardIndex');
+
+    if (!end) {
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(card.front),
+            SizedBox(height: 5),
+            Text(card.back),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Provider.of<ReviewProvider>(context, listen: false).nextCard(); 
+              },
+              child: Text('Next Card'),
+            ),
+          ],
+        ),
+      );
+    } else {
+      return Text('No more cards!');
+    }
   }
 }
