@@ -71,7 +71,7 @@ rule CXX_SHARED_LIBRARY_LINKER__sqlite3_flutter_libs_plugin
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /snap/flutter/130/usr/bin/cmake -S/home/kane/code/flutter-flashcards/app/linux -B/home/kane/code/flutter-flashcards/app/build/linux/x64/debug
+  command = /snap/flutter/141/usr/bin/cmake -S/home/kane/code/flutter-flashcards/app/linux -B/home/kane/code/flutter-flashcards/app/build/linux/x64/debug
   description = Re-running CMake...
   generator = 1
 

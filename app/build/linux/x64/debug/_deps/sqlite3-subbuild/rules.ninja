@@ -23,7 +23,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /snap/flutter/130/usr/bin/cmake -S/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/_deps/sqlite3-subbuild -B/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/_deps/sqlite3-subbuild
+  command = /snap/flutter/141/usr/bin/cmake -S/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/_deps/sqlite3-subbuild -B/home/kane/code/flutter-flashcards/app/build/linux/x64/debug/_deps/sqlite3-subbuild
   description = Re-running CMake...
   generator = 1
 

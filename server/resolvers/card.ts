@@ -24,6 +24,7 @@ export class CardResolver {
 
     @Mutation(() => Card)
     async createsCard(@Arg('deckId', {nullable: false}) front: string, back: string): Promise<Card> {
-        return new Card('0', '0', 'hello', 'newcard')
+        // insert cards from deckId
+        return new Card('0', 'hello', 'newcard')
     }
 }

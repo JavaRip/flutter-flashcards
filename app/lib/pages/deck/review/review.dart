@@ -51,14 +51,13 @@ class _CreatePageBody extends StatelessWidget {
     final cardIndex = Provider.of<ReviewProvider>(context, listen: false).currentCardIndex;
     final end = Provider.of<ReviewProvider>(context, listen: false).end;
 
-    print('lastIndex: $lastIndex');
-    print('cardIndex: $cardIndex');
-
     if (!end) {
       return Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text('Card ${cardIndex + 1} of ${lastIndex + 1}'),
+            SizedBox(height: 5),
             Text(card.front),
             SizedBox(height: 5),
             Text(card.back),
@@ -73,7 +72,11 @@ class _CreatePageBody extends StatelessWidget {
         ),
       );
     } else {
-      return Text('No more cards!');
+      return Column(
+        children: [
+          Center(child: Text('No more cards!')),
+        ],
+      );
     }
   }
 }

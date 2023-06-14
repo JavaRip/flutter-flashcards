@@ -41,38 +41,37 @@ class _CreatePageBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Expanded(
             child: ListView.builder(
-              padding: const EdgeInsets.all(8),
+              padding: const EdgeInsets.all(20),
               itemCount: Provider.of<HomepageProvider>(context, listen: false)
                   .deckTitlesString
                   .length,
               itemBuilder: (BuildContext context, int index) {
-                final deck =
-                    Provider.of<HomepageProvider>(context, listen: false)
-                        .deckTitlesData[index];
-                return Center(
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () =>
-                            context.router.push(DeckRoute(deck: deck)),
-                        child: Container(
-                          padding: const EdgeInsets.all(16),
-                          child: Center(
-                            child: Text(
-                              Provider.of<HomepageProvider>(context, listen: false)
-                                  .deckTitlesData[index]
-                                  .name,
+                final deck = Provider.of<HomepageProvider>(context, listen: false).deckTitlesData[index];
+                return Column(
+                  children: [
+                    Center(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () => context.router.push(DeckRoute(deck: deck)),
+                            child: Container(
+                              padding: const EdgeInsets.all(14),
+                              child: Center(
+                                child: Text(
+                                  Provider.of<HomepageProvider>(context, listen: false).deckTitlesData[index].name,
+                                ),
+                              ),
                             ),
                           ),
-                        ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                    SizedBox(height: 20), 
+                  ],
                 );
               },
             ),

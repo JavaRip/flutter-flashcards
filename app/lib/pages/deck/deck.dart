@@ -29,28 +29,34 @@ class _CreatePageBody extends StatelessWidget {
   const _CreatePageBody({Key? key, required this.deck}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: ([
-        ElevatedButton(
-          onPressed: () {
-            context.router.push(ReviewRoute(deck: deck));
-          },
-          child: const Text('Review Cards'),
-        ),
-        ElevatedButton(
-          onPressed: () {
-            context.router.push(EditRoute(deck: deck));
-          },
-          child: const Text('Edit Cards'),
-        ),
-        ElevatedButton(
-          onPressed: () {
-            context.router.push(AddRoute(deck: deck));
-          },
-          child: const Text('Add Cards'),
-        ),
-      ]),
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: ([
+          SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () {
+              context.router.push(ReviewRoute(deck: deck));
+            },
+            child: const Text('Review Cards'),
+          ),
+          SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () {
+              context.router.push(EditRoute(deck: deck));
+            },
+            child: const Text('Edit Cards'),
+          ),
+          SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () {
+              context.router.push(AddRoute(deck: deck));
+            },
+            child: const Text('Add Cards'),
+          ),
+          SizedBox(height: 20),
+        ]),
+      ),
     );
   }
 }

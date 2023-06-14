@@ -1,8 +1,8 @@
-import { Arg, Mutation, Query, Resolver } from "type-graphql";
-import { Deck } from "../models";
+import { Arg, FieldResolver, Mutation, Query, Resolver, Root } from "type-graphql";
+import { Card, Deck } from "../models";
 import { dbConn } from '../server'
 
-@Resolver()
+@Resolver(() => Deck)
 export class DeckResolver {
     constructor() {}
 
@@ -10,24 +10,21 @@ export class DeckResolver {
     async decks(): Promise<Deck[]> {
         const client = await dbConn.client;
         const deckData = await client.query('SELECT * FROM Deck');
-        const cardData = await client.query('SELECT * FROM Card');
-        const decks = [];
 
-        for (const deck of deckData.rows) {
-            deck.cards = [];
-            for (const card of cardData.rows) {
-                if (card.deckid === deck.id) {
-                    deck.cards.push(card)
-                }
-            }
-           decks.push(deck) 
-        }
+        return deckData.rows.map((deck) => new Deck(deck.id, deck.name, []))
+    }
 
-        return decks;
+    @FieldResolver()
+    async cards(@Root() deck: Deck): Promise<Card[]> {
+        const client = await dbConn.client;
+        const cardData = await client.query('SELECT * FROM Card WHERE deckid = $1', [deck.id]);
+
+        return cardData.rows.map((card) => new Card(card.id, card.front, card.back));
     }
 
     @Mutation(() => Deck)
     async createsDeck(@Arg('name', {nullable: false}) name: string): Promise<Deck> {
+        // create client connection and insert deck 
         return new Deck('0', '', [])
     }
 }
