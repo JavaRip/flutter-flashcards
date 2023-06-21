@@ -36,7 +36,6 @@ class EditProvider extends ChangeNotifier {
   Future<List<DeckCard>> loadCards(Deck deck) async {
     List<CardTableData> cardTableData = await _cardDao.getCardsByDeckId(deck.id);
     _cardsForDeck = cardTableData.map((data) => DeckCard(id: data.id.toString(), deckId: data.deckId.toString(), front: data.front, back: data.back)).toList();
-    notifyListeners();
     return _cardsForDeck;
   }
 }
