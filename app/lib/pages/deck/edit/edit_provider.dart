@@ -8,21 +8,29 @@ import '../../../models/deck_card.dart';
 
 class EditProvider extends ChangeNotifier {
   final CardDao _cardDao;
-
+  int _deckId = 0;
   List<DeckCard> _cardsForDeck = [];
 
   EditProvider({required CardDao cardDao, required Deck deck})
       : _cardDao = cardDao,
         super();
 
-  void helloWorld() {
-    print('hello world');
-    print(_cardsForDeck);
-    print(_cardsForDeck[0]);
+  void setDeckId(int id) {
+    _deckId = id;
   }
 
   List<DeckCard> getCards() {
     return _cardsForDeck;
+  }
+
+  Future<bool> saveChange(String cardId, String newFront, String newBack) async {
+    DeckCard card = _cardsForDeck[int.parse(cardId)];
+    return await _cardDao.updateCard(
+      front: newFront,
+      back: newBack,
+      cardId: int.parse(cardId),
+      deckId: _deckId,
+    );
   }
 
   Future<List<DeckCard>> loadCards(Deck deck) async {

@@ -33,6 +33,22 @@ class CardDao extends DatabaseAccessor<LocalDb> with _$CardDaoMixin {
     );
   }
 
+  Future<bool> updateCard({
+    required String front,
+    required String back,
+    required int deckId,
+    required int cardId,
+  }) {
+    return update(cardTable).replace(
+      CardTableData(
+        id: cardId,
+        back: back,
+        front: front,
+        deckId: deckId,
+      ),
+    );
+  }
+
   Future<List<CardTableData>> getCardsByDeckId(String deckId) =>
     (select(cardTable)..where((table) => table.deckId.equals(int.parse(deckId)))).get();
 }

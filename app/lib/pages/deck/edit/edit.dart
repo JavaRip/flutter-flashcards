@@ -26,16 +26,20 @@ class EditPage extends StatelessWidget {
             FutureBuilder<List<DeckCard>>(
               future: editProvider.loadCards(deck),
               builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return _CreatePageBody(cards: snapshot.data!);
-                } else if (snapshot.hasError) {
+                if (snapshot.hasError) {
                   return Text('${snapshot.error}');
                 } else {
                   return const CircularProgressIndicator();
                 }
               },
             );
-            return _CreatePageBody(cards: editProvider.getCards());
+            editProvider.setDeckId(int.parse(deck.id));
+
+            List<DeckCard> cards = editProvider.getCards();
+            List<TextEditingController> frontControllers = cards.map((card) => TextEditingController(text: card.front)).toList();
+            List<TextEditingController> backControllers = cards.map((card) => TextEditingController(text: card.back)).toList();
+
+            return _CreatePageBody(cards: cards, frontControllers: frontControllers, backControllers: backControllers);
           },
         ),
       ),
@@ -45,8 +49,15 @@ class EditPage extends StatelessWidget {
 
 class _CreatePageBody extends StatelessWidget {
   final List<DeckCard> cards;
+  final List<TextEditingController> frontControllers;
+  final List<TextEditingController> backControllers;
 
-  const _CreatePageBody({Key? key, required this.cards}) : super(key: key);
+  const _CreatePageBody({
+    Key? key, 
+    required this.cards, 
+    required this.frontControllers, 
+    required this.backControllers
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +69,7 @@ class _CreatePageBody extends StatelessWidget {
             children: [
               Expanded(
                 child: TextFormField(
-                  initialValue: cards[index].front,
+                  controller: frontControllers[index],
                   onChanged: (value) {
                     print('update the front value of the corresponding DeckCard');
                   },
@@ -66,7 +77,7 @@ class _CreatePageBody extends StatelessWidget {
               ),
               Expanded(
                 child: TextFormField(
-                  initialValue: cards[index].back,
+                  controller: backControllers[index],
                   onChanged: (value) {
                     print('update the back value of the corresponding DeckCard');
                   },
@@ -74,6 +85,10 @@ class _CreatePageBody extends StatelessWidget {
               ),
               IconButton(
                 onPressed: () {
+                  String newFront = frontControllers[index].text;
+                  String newBack = backControllers[index].text;
+
+                  // Provider.of<EditProvider>(context, listen: false).saveChange(cards[index].id, newFront, newBack); 
                   print('Save button pressed for card at index ${cards[index].id}');
                   // Add your save logic here
                 },
