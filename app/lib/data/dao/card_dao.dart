@@ -39,6 +39,10 @@ class CardDao extends DatabaseAccessor<LocalDb> with _$CardDaoMixin {
     required int deckId,
     required int cardId,
   }) {
+    print('cardId: $cardId');
+    print('back: $back');
+    print('front: $front');
+    print('deckId: $deckId');
     return update(cardTable).replace(
       CardTableData(
         id: cardId,
